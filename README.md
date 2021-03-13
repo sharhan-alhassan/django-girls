@@ -60,16 +60,18 @@
     *post therefore becomes the **variable** for the QuerySet*
 7. To render a request into a template:
 
-    - ```def index(request):
+- ```
+    def index(request):
             post = Post.objects.filter(published_date__lte=timezone.now()).ordery_by('-published_date')
             return (request, 'blog/index.html', {'post': post})
-        ```
+    ```
 
 8. To display on the index.html, create the tags `{{ post }}}`
 - **NB: `{{ post }}` will results as a list of objects in the form `<QuerySet [<Post: post title1>, <Post: post title 2>]`**
 9. To solve this, call the list of items in a for loop
 - ```
 {% for item in post% }
-    {{ item }}`
+    {{ item }}
   {% endfor %}
   ```
+- |linebreaksbr pipe converts linebreaks to paragraphs
