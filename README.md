@@ -68,6 +68,8 @@
 8. To display on the index.html, create the tags `{{ post }}}`
 - **NB: `{{ post }}` will results as a list of objects in the form `<QuerySet [<Post: post title1>, <Post: post title 2>]`**
 9. To solve this, call the list of items in a for loop
-- ```{% for item in post% }
+- ```
+{% for item in post% }
     {{ item }}`
-  {% endfor %}```
+  {% endfor %}
+  ```
