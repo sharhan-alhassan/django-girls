@@ -8,14 +8,15 @@
             <div class="row">
                 <div class="col-md-8 mx-auto">
                     <h3>The blog</h3>
+
                     <div class="container">
-                        {% for item in post %}
+                        {% if post.published_date %}
                             <div class="card">
-                                <div class="card-header">
-                                    <a href="{% url 'blog:detail' pk=item.pk %}">{{ item.title }}</a>
-                                </div>
+                                <div class="card-header">{{ post.title }}</div>
+                                <div class="card-body">{{ post.text|linebreaksbr }}</div> 
+                                <div class="card-footer">Published: {{ post.published_date }}</div>
                             </div><br><br>
-                        {% endfor %}
+                        {% endif %}
                     </div>
 
                 </div>
@@ -24,4 +25,3 @@
     </article>
 
 {% endblock %}
-
