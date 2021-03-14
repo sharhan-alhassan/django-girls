@@ -25,7 +25,7 @@ SECRET_KEY = 'y6!7$h#)j(qv+yv#v*&5e&bs=rj#+#*3_!sg8a^)*ijtt(&6tc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', 'clouditech.pythonanywhere.com']
 
 
 # Application definition
@@ -122,7 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'blog/static')
-]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = Path(BASE_DIR / 'media')
