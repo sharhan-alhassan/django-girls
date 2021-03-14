@@ -68,10 +68,16 @@
 
 8. To display on the index.html, create the tags `{{ post }}}`
 - **NB: `{{ post }}` will results as a list of objects in the form `<QuerySet [<Post: post title1>, <Post: post title 2>]`**
+
 9. To solve this, call the list of items in a for loop
-- ```
+```
 {% for item in post% }
     {{ item }}
   {% endfor %}
-  ```
+```
 - |linebreaksbr pipe converts linebreaks to paragraphs
+
+- 
+10. The mysterious {% url 'post_detail' pk=post.pk %}
+- `post_detail` part means Django will be expecting a URL in `blogs/url.py` with `name=post_detail`
+- `pk=post.pk`: For each data in the database has a pk. `post.pk` access the primary key and set to a variable `pk`
