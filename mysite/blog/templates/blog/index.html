@@ -12,7 +12,7 @@
                         {% for item in post %}
                             <div class="card">
                                 <div class="card-header">
-                                    <a href="{% url 'blog:detail' pk=item.pk %}">{{ item.title }}</a>
+                                    <a href="{{ item.get_absolute_urls }}">{{ item.title }}</a>
                                 </div>
                             </div><br><br>
                         {% endfor %}

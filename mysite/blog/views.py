@@ -11,8 +11,8 @@ def index(request):
     post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/index.html', {'post': post})
 
-def detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+def detail(request, slug):
+    post = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/detail.html', {'post': post})
 
 def add(request):
@@ -23,7 +23,7 @@ def add(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('/', pk=post.pk)
+            return redirect('/')
     else:
         form = PostForm()
     return render(request, 'blog/add.html', {'form': form})

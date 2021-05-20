@@ -15,6 +15,14 @@
 3. author 
 4. created_date
 5. published_date
+
+### Notes about DateTimeField() parameters
+- auto_now: will update every time you save the model. kind of like 
+"Last modified" field  //good for updated_at
+- auto_now_add: the default field will be current date which you cant change 
+manually  //good for created_at
+- default=timezone.now: same as auto_now_add but you can set the field manually on the model
+and save
 ### methods for the blog
 1. publish
 
