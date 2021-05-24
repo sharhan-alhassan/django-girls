@@ -1,5 +1,7 @@
 
+ 
  {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +18,15 @@
 
     {% include 'blog/navbar.html' %}
 
-    {% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                {% block content %}
 
-
-    {% endblock %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
     
     {% include 'blog/footer.html' %}
 
