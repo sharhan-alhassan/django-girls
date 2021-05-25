@@ -9,12 +9,13 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    slug = models.SlugField(max_length=150, unique=True, editable=False, blank=True)
+    # slug = models.SlugField(max_length=150, unique=True, editable=False, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField()
+    published_date = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
+        self.save()
 
     def __str__(self):
         return self.title
@@ -22,7 +23,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('blog:detail', args=[str(self.id)])
 
+    '''
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
+    '''

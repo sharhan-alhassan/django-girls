@@ -9,5 +9,5 @@ from .models import Post
 # admin.site.register(Post, PostAdmin)
 
 @admin.register(Post)
-class PostAdminn(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('title',),}
+class PostAdmin(admin.ModelAdmin):
+    pass

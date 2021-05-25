@@ -25,6 +25,9 @@
                                 <div class="card-body">{{ post.text|linebreaksbr }}</div> 
                                 <div class="card-footer">Published: {{ post.published_date }}</div>
                             </div><br><br>
+                        {% else %}
+                            <h2>Post title: {{ post.title }}</h2>
+                            <a href="{% url 'blog:post_publish' pk=post.pk %}" class="btn btn-secondary">Publish</a>
                         {% endif %}
                     </div>
 

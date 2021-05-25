@@ -5,6 +5,7 @@ from django.utils import timezone
 from . forms import PostForm
 
 from django.shortcuts import get_object_or_404
+
 # Create your views here.
 
 def index(request):
@@ -21,9 +22,9 @@ def add(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
+            # post.published_date = timezone.now()
             post.save()
-            return redirect('/')
+            return redirect('blog:post_draft_list')
     else:
         form = PostForm()
     return render(request, 'blog/add.html', {'form': form})
@@ -35,7 +36,7 @@ def edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
+            # post.published_date = timezone.now()
             post.save()
             return redirect('/', pk=post.pk)
     else:
@@ -49,3 +50,12 @@ def delete(request, pk):
         return redirect('/', pk=post.pk)
 
     return render(request, 'blog/delete.html', {'post': post})
+
+def post_draft_list(request):
+    posts = Post.objects.filter(published_date__isnull=True).order_by('-created_date')
+    return render(request, 'blog/post_draft_list.html', {'posts': posts})
+
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('blog:post_draft_list') 

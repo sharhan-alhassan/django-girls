@@ -140,3 +140,22 @@ else:
 {% if user.is_authenticated %}
 {% endif %}
 ```
+
+
+## Django Girls: Extension
+- From the `views.py`, you can prevent post to automatically post by saving it as draft instead of it being instantly published. Remove the following line:
+
+`post.published_date = timezone.now()`
+
+This way posts will be saved as drafts
+
+### 1. Add more to website
+
+
+### 2. Secure your website
+
+
+### 3. Create comment model
+
+
+### 4 PostgreSQL installation
