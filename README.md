@@ -160,3 +160,12 @@ This way posts will be saved as drafts
 
 
 ### 4 PostgreSQL installation
+
+(PostgreSQL Installation)[https://github.com/DjangoGirls/tutorial-extensions/tree/master/en/optional_postgresql_installation]
+
+### 5. Add Domain
+(Add Domain)[https://github.com/DjangoGirls/tutorial-extensions/tree/master/en/domain]
+
+### 6. Deployment
+
+(Deployment to Heroku)[https://github.com/DjangoGirls/tutorial-extensions/tree/master/en/domain]
