@@ -150,10 +150,11 @@ else:
 This way posts will be saved as drafts
 
 ### 1. Add more to website
-
+1. Add posts
+2. Create drafts(posts without published date)
 
 ### 2. Secure your website
-
+1. Create login and logout 
 
 ### 3. Create comment model
 

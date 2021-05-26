@@ -14,6 +14,13 @@
                                 <div class="card-header">
                                     <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
                                 </div>
+                                <div class="card-footer">
+                                    <a href="{{ item.get_absolute_url }}">Total Comments: {{ item.comments.count }}</a>
+                                    <a href="{{ item.get_absolute_url }}">Unapproved Comments: {{ item.unapproved_comments.count }}</a>
+                                    <a href="{{ item.get_absolute_url }}">Approved Comments: {{ item.approved_comments.count }}</a>
+
+
+                                </div>
                             </div><br><br>
                         {% endfor %}
                     </div>

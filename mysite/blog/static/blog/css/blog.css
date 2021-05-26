@@ -3,3 +3,8 @@ h3 {
     justify-content: center;
     display: flex;
 }
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+

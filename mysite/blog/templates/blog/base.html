@@ -18,12 +18,22 @@
 
     {% include 'blog/navbar.html' %}
 
-    <div class="container-fluid mt-5">
-        <div class="row">
-            <div class="col">
-                {% block content %}
+    <div class="page-header" style="margin-top: 100px;">
+        {% if user.is_authenticated %}
+            <a href="{% url 'blog:add' %}" class="top-menu"><span class="glyphicon glyphicon-plus">Add</span></a>
+            <a href="{% url 'blog:post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit">Edit</span></a>
+            <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
 
-                {% endblock %}
+        {% else %}
+            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock">Login</span></a>
+        {% endif %}
+    </div>
+    
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
             </div>
         </div>
     </div>
